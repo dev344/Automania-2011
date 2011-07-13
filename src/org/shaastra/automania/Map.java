@@ -17,7 +17,7 @@ public class Map {
 	 */
 	public Map(String map_file)
 	{
-		
+		// have to read the file and make an array of the map.
 		
 	}
 

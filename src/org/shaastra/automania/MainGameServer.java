@@ -19,7 +19,7 @@ public class MainGameServer {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Arena arena = new Arena();
-		arena.playMoves();
+		arena.playMoves(false);
 
 	}
 
