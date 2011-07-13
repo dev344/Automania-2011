@@ -17,7 +17,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -41,7 +40,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -70,8 +68,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1shaastra_1_1automania_1_1Arena.html#af8d20ae5326dbeee49279d196ee38ea4">playMoves</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to play both the players' moves.  <a href="#af8d20ae5326dbeee49279d196ee38ea4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac664986317649a93930e99daff15e253"></a><!-- doxytag: member="org::shaastra::automania::Arena::Arena" ref="ac664986317649a93930e99daff15e253" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1shaastra_1_1automania_1_1Arena.html#ac664986317649a93930e99daff15e253">Arena</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classorg_1_1shaastra_1_1automania_1_1Arena.html#affa73c93fe8845cabe07e8ff5211c14f">playMoves</a> (boolean simultaneity)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to play both the players' moves.  <a href="#affa73c93fe8845cabe07e8ff5211c14f"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d331629f0c72cef37a3bfc409d599db"></a><!-- doxytag: member="org::shaastra::automania::Arena::map" ref="a3d331629f0c72cef37a3bfc409d599db" args="" -->
@@ -85,14 +86,15 @@ boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <dl class="author"><dt><b>Author:</b></dt><dd>devesh</dd></dl>
 <p>Detailed explanation here. </p>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="af8d20ae5326dbeee49279d196ee38ea4"></a><!-- doxytag: member="org::shaastra::automania::Arena::playMoves" ref="af8d20ae5326dbeee49279d196ee38ea4" args="()" -->
+<a class="anchor" id="affa73c93fe8845cabe07e8ff5211c14f"></a><!-- doxytag: member="org::shaastra::automania::Arena::playMoves" ref="affa73c93fe8845cabe07e8ff5211c14f" args="(boolean simultaneity)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void org::shaastra::automania::Arena::playMoves </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">boolean&#160;</td>
+          <td class="paramname"><em>simultaneity</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
@@ -102,10 +104,11 @@ boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <p>A function to play both the players' moves. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td>Instead of the Game Server calling all the internal functions of <a class="el" href="classorg_1_1shaastra_1_1automania_1_1Arena.html" title="Arena is the platform on which the game happens.">Arena</a> like checkMoves, getMoves, executeMoves etc, the playMoves will do all that and finally be equivalent to playing the moves of the players after all the checks. // This above description was mainly for the co-coords. To be changed. </td></tr>
+    <tr><td class="paramname">simultaneity</td><td>Boolean indicating the simultaneity of the game</td></tr>
   </table>
   </dd>
 </dl>
+<p>Instead of the <a class="el" href="classorg_1_1shaastra_1_1automania_1_1MainGameServer.html" title="Main Game Server class.">MainGameServer</a> calling all the internal functions of <a class="el" href="classorg_1_1shaastra_1_1automania_1_1Arena.html" title="Arena is the platform on which the game happens.">Arena</a> like checkMoves, getMoves, executeMoves etc, the playMoves will do all that and finally be equivalent to playing the moves of the players after all the checks. // This above description was mainly for the co-coords. To be changed. </p>
 
 </div>
 </div>
@@ -118,7 +121,7 @@ boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,7 +130,7 @@ boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Jul 13 2011 01:37:28 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Jul 13 2011 18:59:53 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4-20110629 </small></address>
 </body>

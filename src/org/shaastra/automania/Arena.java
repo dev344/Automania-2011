@@ -11,12 +11,13 @@ import org.shaastra.automania.*;
 public class Arena {
 	
 	public  Map map;
-	public  boolean game_status; 	///<Indicates the status of the game.
+	public  boolean game_status; 		///<Indicates the status of the game.
 	
 	private IOManager io_manager;
-	private int num_of_players;		///<variable indicating number of players
-	private boolean check1; 		///<Dummy variable
-	private int[] player_moves;		///<Array in which the players' moves are stored temporarily
+	private int num_of_players;			///<variable indicating number of players
+	private boolean check1; 			///<Dummy variable
+	private int[] players_moves;		///<Array in which the players' moves are stored temporarily
+	private int[][] players_position;	///<Double array of player position. May need to change this
 	
 	
 	/**
@@ -26,8 +27,12 @@ public class Arena {
 	{
 		io_manager = new IOManager();
 		map = new Map("map.txt");  	// Should change the hardcodedness of the mapname.
-		num_of_players = 2;			// Should change this too.
-		player_moves = new int[num_of_players];
+		num_of_players = GlobalDataStore.NUM_OF_PLAYERS;			
+		players_moves = new int[num_of_players];
+		players_position = map.getPlayersInitialPosition();			// possible source of error
+		
+		
+		test_function();
 	}
 	
 	
@@ -43,20 +48,24 @@ public class Arena {
 	 */
 	public void playMoves(boolean simultaneity)
 	{
-		for(int i=0; i<num_of_players; i++)
+		for(int i = 0; i < num_of_players; i++)
 		{
-			player_moves[i] = io_manager.getMove(i);
+			//           TO DO
+			// I should protect players_moves before passing it.
+			players_moves[i] = io_manager.getMove(i, players_moves);
 			if(simultaneity == false)
 			{
 				checkMoves(i);
-				executeMoves();
+				executeMoves(i);
 				
 			}
 		}
 		if(simultaneity)
 		{
 			checkMoves(-1);			// -1 indicates check all the moves together
+			executeMoves(-1);
 		}
+		test_function();
 		
 	}
 	
@@ -72,10 +81,23 @@ public class Arena {
 	}
 	
 	/**
+	 * Function to execute move played. 
+	 * @param player_number
 	 * 
+	 * Mainly updates the map as of now.
+	 * If player_number is negative then it executes all the moves at a time.
 	 */
-	private void executeMoves()
+	private void executeMoves(int player_number)
 	{
+		if(player_number < 0)
+		{
+			// this means it wants all the moves to be executed simultaneously
+			
+			for(int i = 0; i < num_of_players; i++)
+			{
+				updatePlayerPosition(i);
+			}
+		}
 		
 	}
 	
@@ -88,5 +110,40 @@ public class Arena {
 	private int checkForEnd(int blah, char blaha)
 	{
 		return blah;
+	}
+	
+	/**
+	 * Updates player position on map 
+	 * @param player_number
+	 */
+	private void updatePlayerPosition(int player_number)
+	{
+		if(players_moves[player_number] == GlobalDataStore.UP)
+		{
+			players_position[player_number][1]++;
+		}
+		else if(players_moves[player_number] == GlobalDataStore.DOWN)
+		{
+			players_position[player_number][1]--;
+		}
+		else if(players_moves[player_number] == GlobalDataStore.RIGHT)
+		{
+			players_position[player_number][0]++;
+		}
+		else if(players_moves[player_number] == GlobalDataStore.LEFT)
+		{
+			players_position[player_number][0]--;
+		}
+	}
+	
+	/**
+	 * Just a test function to test our code. 
+	 */
+	private void test_function()
+	{
+		for(int i = 0; i < num_of_players; i++)
+		{
+			System.out.printf("The %d player position is %d , %d \n", i, players_position[i][0], players_position[i][1]);
+		}
 	}
 }
